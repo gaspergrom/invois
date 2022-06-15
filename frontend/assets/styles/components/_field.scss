@@ -1,0 +1,39 @@
+.c-field {
+  label{
+    font-size: rem(10);
+    line-height: rem(16);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: rem(4);
+    color: var(--color-gray-30);
+    letter-spacing: rem(1);
+    display:block;
+    text-transform: uppercase;
+  }
+
+  &--hint{
+    font-size: rem(12);
+    line-height: rem(16);
+    letter-spacing: rem(0.2);
+    margin-top: rem(4);
+    color: var(--color-gray-30);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &--error{
+    font-size: rem(12);
+    line-height: rem(16);
+    letter-spacing: rem(0.2);
+    margin-top: rem(4);
+    color: var(--color-red-100);
+    font-weight: var(--font-weight-semibold);
+  }
+
+  &--success{
+    font-size: rem(12);
+    line-height: rem(16);
+    letter-spacing: rem(0.2);
+    margin-top: rem(4);
+    color: var(--color-green-100);
+    font-weight: var(--font-weight-semibold);
+  }
+}

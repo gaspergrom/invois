@@ -1,0 +1,69 @@
+.c-dropdown {
+  position: relative;
+  padding-bottom: rem(4);
+  padding-top: rem(4);
+
+  &.is-active {
+    nav {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    height: auto !important;
+    background-color: var(--color-white);
+    border: solid rem(1) var(--color-gray-10);
+    border-radius: rem(6);
+    padding: rem(8) 0;
+    box-shadow: 0 rem(2) rem(4) rgba(2, 2, 3, 0.04);
+    min-width: rem(153);
+    opacity: 0;
+    z-index: 20;
+    visibility: hidden;
+    @include transition();
+
+    hr{
+      margin: 0 12px;
+      border-color: var(--color-gray-20);
+    }
+
+    a {
+      cursor: pointer;
+      display: block;
+      padding: rem(12) rem(12);
+      background-color: var(--color-white);
+      width: 100%;
+      font-weight: 700;
+      font-size: rem(12);
+      line-height: rem(16);
+      color: var(--color-gray-70);
+      @include transition();
+
+      &:hover, &.is-active {
+        background-color: var(--color-gray-5);
+      }
+
+      &.is-disabled{
+        background-color: var(--color-white) !important;
+        cursor: initial;
+      }
+    }
+  }
+
+  &--right {
+    nav {
+      left: auto;
+      right: 0;
+    }
+  }
+  &--up {
+    nav {
+      top: auto;
+      bottom: 100%;
+    }
+  }
+}

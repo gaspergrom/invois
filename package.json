@@ -1,0 +1,6 @@
+{
+  "devDependencies": {
+    "@vueuse/core": "^8.7.5",
+    "@vueuse/nuxt": "^8.7.5"
+  }
+}

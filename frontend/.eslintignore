@@ -1,0 +1,6 @@
+**/*.spec.js
+cypress
+coverage
+dist
+plugins
+plugin-types.d.ts

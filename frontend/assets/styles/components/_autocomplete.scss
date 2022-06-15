@@ -1,0 +1,31 @@
+.c-autocomplete {
+  position: absolute;
+  top: calc(100% + 0.125rem);
+  left: 0;
+  width: 100%;
+  background: var(--color-white);
+  box-shadow: 0 rem(2) rem(4) rgba(2, 2, 3, 0.04);
+  border: solid rem(1) var(--color-gray-10);
+  border-radius: rem(6);
+  z-index: 10;
+  padding: rem(12) 0;
+
+  &__item {
+    padding: rem(12);
+    font-size: rem(14);
+    line-height: rem(16);
+    letter-spacing: 0.2;
+    cursor: pointer;
+    color: var(--color-black);
+    @include transition();
+
+    &:hover, &.is-active{
+      background-color: var(--color-gray-3);
+    }
+  }
+
+  &--scroll{
+    max-height: rem(216);
+    overflow: auto;
+  }
+}

@@ -1,0 +1,121 @@
+.c-side-modal{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: var(--color-white);
+  height: 100%;
+  z-index: 1501;
+  @include transition(400ms);
+
+  &.show{
+    right: 0 !important;
+  }
+
+  &__backdrop{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(2, 2, 3, 0.6);
+    z-index: 1500;
+    visibility: hidden;
+    opacity: 0;
+
+    overflow: auto;
+    @include transition(400ms);
+
+    &.show{
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__header{
+    border-bottom: solid rem(1) var(--color-gray-10);
+  }
+
+  &__navigation{
+    position: relative;
+
+    nav {
+      position: absolute;
+      top: calc(100% + 0.25rem);
+      right: 0;
+      background: var(--color-white);
+      border-radius: rem(6);
+      border: rem(1) solid var(--color-gray-10);
+      min-width: rem(208);
+      padding: rem(8) 0;
+      opacity: 0;
+      z-index: 10;
+      visibility: hidden;
+      @include transition();
+
+      a{
+        display: flex;
+        align-items: center;
+        padding: rem(12) rem(24);
+        cursor: pointer;
+        @include transition();
+
+        &:hover{
+          background: var(--color-gray-5);
+        }
+
+        span{
+          margin-left: rem(8);
+          font-size: rem(13);
+          line-height: rem(16);
+          font-weight: 700;
+          color: var(--color-gray-50)
+        }
+
+        svg{
+          color: var(--color-gray-50)
+        }
+
+        &.is-danger{
+          svg, span{
+            color: var(--color-red-100)
+          }
+        }
+      }
+    }
+
+    &:hover, &.is-open{
+      nav{
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+
+  main{
+    width: 68%;
+    height: calc(100vh - 4rem);
+    overflow: auto;
+  }
+
+  aside{
+    width: 32%;
+    background: var(--color-gray-5);
+    height: calc(100vh - 4rem);
+    overflow: auto;
+  }
+
+  nav:not(.c-side-modal__navigation nav){
+    width: 100%;
+    border-bottom: solid rem(1) var(--color-gray-10);
+    height: rem(44);
+
+    & + div {
+      main{
+        height: calc(100vh - 6.875rem);
+      }
+      aside {
+        height: calc(100vh - 6.875rem);
+      }
+    }
+  }
+}

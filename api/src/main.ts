@@ -6,7 +6,13 @@ import { INestApplication, ValidationPipe } from '@nestjs/common';
 const commonCorsOptions = {
   optionsSuccessStatus: 200,
   methods: ['GET', 'HEAD', 'OPTIONS', 'POST', 'PUT', 'DELETE', 'PATCH'],
-  allowedHeaders: ['Origin', 'X-Requested-With', 'Content-Type', 'Accept', 'Authorization'],
+  allowedHeaders: [
+    'Origin',
+    'X-Requested-With',
+    'Content-Type',
+    'Accept',
+    'Authorization',
+  ],
   credentials: true,
 };
 
@@ -19,10 +25,10 @@ async function bootstrap() {
   });
 
   const apiConfig = new DocumentBuilder()
-      .setTitle('Invois API')
-      .setDescription('Invois api documentation')
-      .addBearerAuth()
-      .build();
+    .setTitle('Invois API')
+    .setDescription('Invois api documentation')
+    .addBearerAuth()
+    .build();
   SwaggerModule.setup('api', app, SwaggerModule.createDocument(app, apiConfig));
 
   applyGlobalValidationPipe(app);
@@ -33,8 +39,8 @@ bootstrap();
 
 function applyGlobalValidationPipe(app: INestApplication): void {
   app.useGlobalPipes(
-      new ValidationPipe({
-        transform: true,
-      }),
+    new ValidationPipe({
+      transform: true,
+    }),
   );
 }

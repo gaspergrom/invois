@@ -1,0 +1,8 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cypress-io/cypress/develop/cli/schema/cypress.schema.json",
+  "integrationFolder": "./test/e2e",
+  "testFiles": "./*.spec.js",
+  "url": {
+    "base": "http://localhost:8003"
+  }
+}

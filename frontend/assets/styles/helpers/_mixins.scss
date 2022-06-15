@@ -1,0 +1,59 @@
+/* ---------------------------------- *\
+            Mixins & helpers
+\* ---------------------------------- */
+
+
+/* Transitions */
+@mixin transition($args: 200ms ease-in-out) {
+  transition: #{$args};
+}
+
+/* Transforms */
+@mixin transform($args) {
+  -webkit-transform: #{$args};
+  -ms-transform: #{$args};
+  transform: #{$args};
+}
+
+/* responsive font-size */
+@function rem($size) {
+  @return calc($size / 16) * 1rem;
+}
+
+/* animation */
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  animation: #{$str};
+}
+
+/* keyframes */
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+/* mixin for internet explorer */
+@mixin ie {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+$sm-down: "only screen and (max-width : 1023px)";
+@mixin sm-down {
+  @media #{$sm-down} {@content;}
+}
+$sm-up: "only screen and (min-width : 1024px)";
+@mixin sm-up {
+  @media #{$sm-up} {@content;}
+}
+
+$xs-down: "only screen and (max-width : 767px)";
+@mixin xs-down {
+  @media #{$xs-down} {@content;}
+}

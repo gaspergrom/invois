@@ -1,0 +1,20 @@
+.c-toast{
+  position: fixed;
+  left: 50%;
+  bottom: rem(16);
+  padding: rem(12);
+  border-radius: rem(6);
+  background: var(--color-gray-100);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(4rem) translateX(-50%);
+  min-width: rem(240);
+  z-index: 1502;
+  @include transition();
+
+  &.is-active{
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) translateX(-50%);
+  }
+}

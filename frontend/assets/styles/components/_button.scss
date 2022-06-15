@@ -1,0 +1,236 @@
+/* ---------------------------------- *\
+            Button
+\* ---------------------------------- */
+
+.c-btn {
+  font-size: rem(14);
+  line-height: rem(22);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  color: var(--color-white);
+  background-image: var(--gradient-button);
+  background-size: 220%;
+  background-position: 100%;
+  padding: rem(12) rem(30);
+  border: 0;
+  border-radius: rem(12);
+  outline: none;
+  cursor: pointer;
+  height: rem(46);
+  font-family: var(--font-primary);
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  display: inline-block;
+  position: relative;
+  @include transition();
+
+  &:hover {
+    background-position: 0;
+  }
+
+  &:disabled {
+    background: var(--color-gray-20) !important;
+    color: var(--color-gray-70) !important;
+    cursor: not-allowed;
+    border-color: var(--color-gray-20);
+    box-shadow: none;
+  }
+
+  &--secondary {
+    color: var(--color-primary-80);
+    background: var(--color-white);
+    padding: rem(10) rem(30);
+    border: solid rem(2) var(--color-primary-80);
+
+    &:hover {
+      background: var(--color-white);
+    }
+
+    &.is-loading{
+      &:before {
+        background: var(--color-gray-5) !important;
+      }
+
+      &:after {
+        border-top: rem(2) solid var(--color-primary-100) !important;
+      }
+    }
+
+    &.c-btn--medium{
+      padding: rem(10) rem(20);
+    }
+
+    &.c-btn--small{
+      padding: rem(6) rem(10);
+    }
+  }
+
+  &--tertiary {
+    color: var(--color-primary-80);
+    background: transparent;
+    box-shadow: none;
+
+    &:hover {
+      color: var(--color-primary-100);
+    }
+
+    &.is-loading{
+      &:before {
+        background: transparent !important;
+      }
+
+      &:after {
+        border-top: rem(2) solid var(--color-primary-80) !important;
+      }
+    }
+  }
+
+  &--neutral {
+    color: var(--color-gray-30);
+    background: transparent;
+    padding: rem(10) rem(30);
+    border: solid rem(2) var(--color-gray-20);
+
+    &:hover {
+      background: var(--color-gray-20);
+      color: var(--color-white);
+    }
+
+    &.is-loading{
+      &:before {
+        background: var(--color-gray-5) !important;
+      }
+
+      &:after {
+        border-top: rem(2) solid var(--color-gray-30) !important;
+      }
+    }
+
+    &.c-btn--medium{
+      padding: rem(10) rem(20);
+    }
+
+    &.c-btn--small{
+      padding: rem(6) rem(10);
+    }
+  }
+
+
+  &--danger {
+    color: var(--color-white);
+    background: var(--color-red-100);
+
+    &:hover {
+      background: var(--color-red-110);
+    }
+
+    &.is-loading{
+      &:before {
+        background: var(--color-red-100) !important;
+      }
+
+      &:after {
+        border-top: rem(2) solid var(--color-white) !important;
+      }
+    }
+  }
+
+  &--medium {
+    font-size: rem(14);
+    line-height: rem(16);
+    padding: rem(12) rem(20);
+    height: rem(40);
+  }
+
+  &--small {
+    font-size: rem(12);
+    line-height: rem(16);
+    padding: rem(8) rem(12);
+    height: rem(32);
+  }
+
+  &--icon {
+    height: rem(46);
+    width: rem(46);
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+
+    &-medium{
+      height: rem(36);
+      width: rem(36);
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+    &-small{
+      height: rem(32);
+      width: rem(32);
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+    }
+  }
+
+  &--full {
+    width: 100%;
+  }
+
+  &.is-disabled {
+    background: var(--color-gray-5);
+    color: var(--color-gray-50);
+    border-color: var(--color-gray-5);
+
+    &:hover {
+      background: var(--color-gray-5);
+      color: var(--color-gray-50);
+      border-color: var(--color-gray-5);
+    }
+  }
+
+  &.is-loading {
+    &:before {
+      content: '';
+      background-image: var(--gradient-button);
+      background-size: 220%;
+      background-position: 0;
+      border-radius: rem(10);
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: calc(50% - .75rem);
+      top: calc(50% - .75rem);
+      border: rem(2) solid transparent;
+      border-top: rem(2) solid var(--color-white);
+      border-radius: 50%;
+      width: rem(20);
+      height: rem(20);
+      animation: spin .8s linear infinite;
+    }
+  }
+
+
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

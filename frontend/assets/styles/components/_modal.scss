@@ -1,0 +1,36 @@
+.c-modal{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(2, 2, 3, 0.6);
+  z-index: 2000;
+  visibility: hidden;
+  opacity: 0;
+
+  overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @include transition();
+
+  &.show{
+    visibility: visible;
+    opacity: 1;
+
+    .c-modal__content{
+      transform: scale(1);
+    }
+  }
+
+  &__content{
+    width: 100%;
+    max-width: rem(544);
+    background-color: var(--color-white);
+    border-radius: rem(6);
+    transform: scale(0.9);
+    @include transition();
+  }
+}
